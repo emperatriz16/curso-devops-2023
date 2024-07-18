@@ -16,7 +16,7 @@ pipeline {
         skipDefaultCheckout(true)
         office365ConnectorWebhooks([
             [
-                name: 'General',
+                name: 'api',
                 notifyFailure: true,
                 notifySuccess: true,
                 notifyRepeatedFailure: true,
