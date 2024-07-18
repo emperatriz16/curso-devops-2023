@@ -12,18 +12,7 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            office365ConnectorSend message: 'Build Succeeded!', webhookUrl: 'https://outlook.office.com/webhook/...'
-        }
-        failure {
-            office365ConnectorSend message: 'Build Failed!', webhookUrl: 'https://outlook.office.com/webhook/...'
-        }
-    }
-
-
-
-    /*options {
+    options {
         skipDefaultCheckout(true)
         office365ConnectorWebhooks([
             [
@@ -36,5 +25,5 @@ pipeline {
             ]
         ])
         durabilityHint('PERFORMANCE_OPTIMIZED')
-    }*/
+    }
 }
