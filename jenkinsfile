@@ -4,27 +4,28 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
+                // Simulación de una compilación exitosa
+                script {
+                    echo 'Compilación exitosa'
+                }
             }
         }
     }
 
     post {
         success {
-            office365ConnectorSend message: 'Build Succeeded!', webhookUrl: 'https://outlook.office.com/webhook/...'
+            // Enviar notificación a Microsoft Teams en caso de éxito
+            teams(
+                url: 'https://teams.microsoft.com/l/channel/19%3A9e05d1043cfc477fbbac8d923116ff09%40thread.tacv2/api?groupId=c763c9ec-66c0-44a2-854c-4a0541c813c0&tenantId=66a033ea-d9e9-457f-9467-66b9ab9ff084',
+                message: "Compilación exitosa de Jenkins"
+            )
         }
         failure {
-            office365ConnectorSend message: 'Build Failed!', webhookUrl: 'https://outlook.office.com/webhook/...'
+            // Enviar notificación a Microsoft Teams en caso de fallo
+            teams(
+                url: 'https://teams.microsoft.com/l/channel/19%3A9e05d1043cfc477fbbac8d923116ff09%40thread.tacv2/api?groupId=c763c9ec-66c0-44a2-854c-4a0541c813c0&tenantId=66a033ea-d9e9-457f-9467-66b9ab9ff084',
+                message: "Fallo en la compilación de Jenkins"
+            )
         }
     }
 }
