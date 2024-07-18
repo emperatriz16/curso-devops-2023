@@ -16,7 +16,7 @@ pipeline {
         skipDefaultCheckout(true)
         office365ConnectorWebhooks([
             [
-                name: 'Jenkins',
+                name: 'api',
                 notifyFailure: true,
                 notifySuccess: true,
                 notifyRepeatedFailure: true,
