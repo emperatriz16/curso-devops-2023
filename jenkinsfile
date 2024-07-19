@@ -21,7 +21,7 @@ pipeline {
                 notifySuccess: true,
                 notifyRepeatedFailure: true,
 
-                url: 'https://teams.microsoft.com/l/channel/19%3A9e05d1043cfc477fbbac8d923116ff09%40thread.tacv2/api?groupId=c763c9ec-66c0-44a2-854c-4a0541c813c0&tenantId=66a033ea-d9e9-457f-9467-66b9ab9ff084'
+                url: 'https://teams.microsoft.com/l/channel/19%3A9e05d1043cfc477fbbac8d923116ff09%40thread.tacv2/api?groupId=c763c9ec-66c0-44a2-854c-4a0541c813c0&tenantId='
             ]
         ])
         durabilityHint('PERFORMANCE_OPTIMIZED')
